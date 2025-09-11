@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment#1 22301009 김지홍</title>
+</head>
+<style>
+    .div_navleft{
+        border-radius: 3px;
+        width:150px;
+        padding: 5px;
+        margin: 5px;
+        border:1px solid #d4d4d4;
+    }
+    .div_navleft.normal{
+        background-color: #f1f1f1;
+    }
+    .div_navleft.active{
+        background-color: #05aa6d;
+        font-weight: 800;
+        color: #ffffff;
+    }
+    .div_navleft:hover{
+        background-color: #ffffff;
+    }
+    
+    a:link {color: black;}
+    a:visited {color:black;}
+    a:hover {text-decoration-line: none;}
+    a:active {color: black;}
+</style>
+<body>
+    <!--헤더-->
+    <div style="background-color: #05aa6d; padding: 15px; margin: 5px; color: white; border-radius: 5px;">
+        <div style="font-size: xx-large; font-weight: 1000;">Welcome to 김지홍's Homepage(22301009)</div>
+        <div>Use the menu to select different Stylesheets</div>
+    </div>
+    
+    <div>
+        <!--왼쪽 네비-->
+        <div style="float:left;">
+            <div class="div_navleft active"><a style="text-decoration-line: none; color: inherit;" href="./style1.html">Stylesheet 1</a></div>
+            <div class="div_navleft normal"><a style="text-decoration-line: none; color: inherit;" href="./style2.html">Stylesheet 2</a></div>
+            <div class="div_navleft normal"><a style="text-decoration-line: none; color: inherit;" href="./style3.html">Stylesheet 3</a></div>
+            <div class="div_navleft normal"><a style="text-decoration-line: none; color: inherit;" href="./style4.html">Stylesheet 4</a></div>
+            <div class="div_navleft normal"><a style="text-decoration-line: none; color: inherit;" href ="./index.html">No Stylesheet</a></div>
+        </div>
+
+        <!--가운데-->
+        <div style="float: left; height: 55vh; width: 55vw; padding: 25px; ">
+            <div style="font-size:xx-large; font-weight:900; padding-bottom: 15px;">Same Page Different Stylesheets</div>
+            This is a demonstration of how different stylesheets can change the layout of your HTML page. You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following links:
+            <br />
+            <div>
+                <a href="./style1.html">Stylesheet1</a>,
+                <a href="./style2.html">Stylesheet2</a>,
+                <a href="./style3.html">Stylesheet3</a>,
+                <a href="./style4.html">Stylesheet4</a>.
+            </div>
+           
+
+            <div style="font-size:x-large; font-weight:900; padding: 25px 0 15px 0;">No Styles</div>
+            This page uses DIV elements to group different sections of the HTML page. Click here to see how the page looks like with no stylesheet:
+            <div><a href = "./index.html">No Stylesheet</a>.</div>
+        </div>
+
+        <!--오른쪽 사이드 바-->
+        <div style="float: right; border-radius: 5px; height:60vh; margin:5px; padding: 10px; width: 15vw; background-color: #32a4e7; color: #ffffff;">
+            <h2>Side-Bar</h2>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
+        </div>
+    </div>
+
+    <!--하단-->
+    <div style="font-size: small; text-align: center; border-radius: 5px; border: 1px solid #d2d2d2; float: inline-end; padding: 10px; color: #000; background-color: #f1f1f1;">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+    </div>
+
+</body>
+</html>

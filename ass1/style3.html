@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment#1 22301009 김지홍</title>
+</head>
+<style>
+    a:link{color: black;}
+    a:visited{color: black;}
+    a:active{color: #83c753;}
+    a:hover{color: #83c753;}
+
+    .div_nav{
+        width:150px;
+        padding: 5px;
+        margin-top: 12px;
+        margin-left: 3px;
+        color: white;
+        text-align: center;
+        display: inline-block;
+    }
+
+    .div_nav.normal{
+        background-color: #555555;
+    }
+
+    .div_nav.active{
+        background-color: #05aa6d;
+    }
+
+    .div_nav:hover{
+        background-color: black;
+    }
+</style>
+<body>
+    <!--헤더-->
+    <div style="padding: 20px 10px;">
+        <div style="font-size: 32px; font-weight: 1000; color: #4caf51; margin-top: 5px;">Welcome to 김지홍's Homepage(22301009)</div>
+        <div style="padding-top: 10px; margin-top: 5px;">Use the menu to select different Stylesheets</div>
+    </div>
+
+    <!--네비 바-->
+    <div style="float:center; margin-left: 10px;">
+        <div class="div_nav normal"><a style="text-decoration-line: none; color: inherit;" href = "./style1.html">Stylesheet 1</a></div>
+        <div class="div_nav normal"><a style="text-decoration-line: none; color: inherit;" href = "./style2.html">Stylesheet 2</a></div>
+        <div class="div_nav active"><a style="text-decoration-line: none; color: inherit;" href = "./style3.html">Stylesheet 3</a></div>
+        <div class="div_nav normal"><a style="text-decoration-line: none; color: inherit;" href = "./style4.html">Stylesheet 4</a></div>
+        <div class="div_nav normal"><a style="text-decoration-line: none; color: inherit;" href = "index.html">No Stylesheet</a></div>
+    </div>
+
+    <!--중간-->
+    <div style="padding: 20px 10px;">
+        <div style="font-size: 32px; font-weight: 1000; color: #4caf51; padding-bottom: 10px;">Same Page Different Stylesheets</div>
+        This is a demonstration of how different stylesheets can change the layout of your HTML page. You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following links:
+        <div>
+            <a href="./style1.html">Stylesheet1</a>,
+            <a href="./style2.html">Stylesheet2</a>,
+            <a href="./style3.html">Stylesheet3</a>,
+            <a href="./style4.html">Stylesheet4</a>.
+        </div>
+
+        <div style="font-size:25px; font-weight:900; padding: 25px 0 20px 0; color: #4caf51;">No Styles</div>
+        This page uses DIV elements to group different sections of the HTML page. Click here to see how the page looks like with no stylesheet:
+        <div>
+            <a href="./index.html">No Stylesheet</a>.
+        </div>
+    </div>
+
+    <!--하단 바-->
+    <div style="margin: 8px; padding: 20px 10px; background-color: #f1f1f1; border: 1px solid #d4d4d4;">
+        <div style="font-size:21px; font-weight:800; color: #4caf51; padding: 5px 0 20px;">Side-Bar</div>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+    </div>
+
+    <!--하단-->
+    <div style="padding: 5px; text-align: center; font-size: small; margin:0 15px;">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+    </div>
+</body>
+</html>
