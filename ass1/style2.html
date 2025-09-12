@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment#1 22301009 김지홍</title>
+</head>
+<style>
+    .div_navright{
+        border-radius: 20px;
+        width:170px;
+        padding: 5px;
+        margin: 0 0 10px;
+        text-align: center;
+        font-size: large;
+    }
+    .div_navright.normal{
+        background-color: #d14936;
+        color: #ffffff;
+        border: 1px solid #d14936;
+    }
+    .div_navright.active{
+        background-color: #ffffff;
+        font-weight: 800;
+        color: #d14936;
+        border: 1px solid #d14936;
+    }
+    .div_navright:hover{
+        background-color: #ffffff;
+        border: 1px solid #d14936;
+        color: #d14936;
+    }
+    
+    a:link {color: #d14936; text-decoration-line: none;}
+    a:visited {color:#d14936;}
+    a:hover {text-decoration-line: underline; text-decoration-color: #d14936;}
+    a:active {color: #d14936;}
+
+    body{
+        background-color: #d14936;
+    }
+</style>
+
+<body>
+    <!--헤더-->
+    <div style="padding: 15px;">
+        <div style="font-size: xxx-large; font-weight: 900; color: #ffffff;">Welcome to 김지홍's Homepage(22301009)</div>
+        <div style="color: #ffffff; padding: 15px 0 20px; font-size: xx-large; font-weight: 500;">Use the menu to select different Stylesheets</div>
+    </div>
+    
+    <div>
+        <!--오른쪽 네비-->
+        <div style="float: right; margin: 20px 15px;">
+            <div class="div_navright normal"><a style="text-decoration-line: none; color: inherit;" href="./style1.html">Stylesheet 1</a></div>
+            <div class="div_navright active"><a style="text-decoration-line: none; color: inherit;" href="./style2.html">Stylesheet 2</a></div>
+            <div class="div_navright normal"><a style="text-decoration-line: none; color: inherit;" href="./style3.html">Stylesheet 3</a></div>
+            <div class="div_navright normal"><a style="text-decoration-line: none; color: inherit;" href="./style4.html">Stylesheet 4</a></div>
+            <div class="div_navright normal"><a style="text-decoration-line: none; color: inherit;" href ="./index.html">No Stylesheet</a></div>
+        </div>
+
+        <!--가운데-->
+        <div style="float: center; height: 23.8vh; width: 96.7vw; padding: 28px 15px; background-color: #ffffff;">
+            <div style="font-size:29px; font-weight:900; padding-bottom: 15px; color: #d14936;">Same Page Different Stylesheets</div>
+            This is a demonstration of how different stylesheets can change the layout of your HTML page. You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following links:
+            <br />
+            <div>
+                <a href="./style1.html">Stylesheet1</a>,
+                <a href="./style2.html">Stylesheet2</a>,
+                <a href="./style3.html">Stylesheet3</a>,
+                <a href="./style4.html">Stylesheet4</a>.
+            </div>
+           
+
+            <div style="font-size:22px; font-weight:900; padding: 12px 0; color: #d14936;">No Styles</div>
+            This page uses DIV elements to group different sections of the HTML page. Click here to see how the page looks like with no stylesheet:
+            <div><a href = "./index.html">No Stylesheet</a>.</div>
+        </div>
+
+        <!--사이드 바-->
+        <div style="float: center; height:7vh; width: 96.7vw; padding: 25px 15px; background-color: #f7dad7; color: #d14936;">
+            <div style="font-size: large; font-weight: bold; padding-bottom: 20px;">Side-Bar</div>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
+        </div>
+    </div>
+
+    <!--하단-->
+    <div style="padding: 10px; text-align: center; font-size: 12px; margin:3px 5px; color: #ffffff;">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+    </div>
+
+</body>
+</html>
