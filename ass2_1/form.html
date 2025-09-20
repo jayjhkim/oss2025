@@ -80,6 +80,22 @@
             const list = document.getElementById("todo-list");
             list.innerHTML = "";
         }
+
+        //콤마 단위로 끊는 기능
+        function addTodo() {
+            const input = document.getElementById("todo-input");
+            const taskText = input.value.trim();
+            if (taskText) {
+                const list = document.getElementById("todo-list");
+                const tasks = taskText.split(',').map(t => t.trim()).filter(t => t !== "");
+                tasks.forEach(task => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = task;
+                    list.appendChild(listItem);
+                });
+                input.value = "";
+            }
+        }
     </script>
     
 </body>
