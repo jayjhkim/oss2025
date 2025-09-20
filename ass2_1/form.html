@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment#2-1 22301009 김지홍</title>
+</head>
+<style>
+    body {
+        background-color: rgb(253, 237, 255);
+    }
+
+    input {
+        padding: 10px 12px;
+        margin: 10px 0 0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        width: 38vh;
+        box-sizing: border-box;
+        font-size: 18px;
+    }
+
+    button {
+        padding: 10px 12px;
+        margin: 10px 0 0;
+        color: white;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        width: auto;
+        box-sizing: border-box;
+        font-size: 17px;
+        cursor: pointer;
+        font-weight: 500;
+        background-color: pink;
+
+    }
+
+    ul {
+        padding: 10px;
+        font-size: 22px;
+        margin-top: 10px;
+        margin-left: 20px;
+        color: rgb(255, 165, 179);
+    }
+
+    img {
+        margin-left: 7px;
+        width: 60px;
+        height: auto;
+    }
+
+</style>
+<body>
+    <div style="margin: 50px;">
+        <span style="font-size: xxx-large; color: rgb(255, 165, 179); font-weight: 900;">To do List</span>
+        <img src="./rabbit.png">
+        <div>
+            <input type="text" id="todo-input" placeholder="Enter a new task" style="opacity: 70%; margin-right: 7px; background-color: rgb(255, 247, 255);">
+            <button onclick="addTodo()">추가</button>
+            <button onclick="clearTodo()">삭제</button>
+        </div>
+        <ul id="todo-list"></ul>
+
+    </div>
+
+    <script>
+        function addTodo() {
+            const input = document.getElementById("todo-input");
+            const task = input.value.trim();
+            if (task) {
+                const list = document.getElementById("todo-list");
+                const listItem = document.createElement("li");
+                listItem.textContent = task;
+                list.appendChild(listItem);
+                input.value = "";
+            }
+        }
+
+        function clearTodo() {
+            const list = document.getElementById("todo-list");
+            list.innerHTML = "";
+        }
+    </script>
+    
+</body>
+</html>

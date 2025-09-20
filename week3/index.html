@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week3</title>
+</head>
+<body>
+    <h2>HTML Forms</h2>
+    <div>사용자 정보입력</div> <br />
+
+    <!--form 태그 실습-->
+    <form method="POST" action="form_ok.html">
+        <!--method는 데이터를 전송할 때의 방식 GET(받은 정보를 url에 표기), POST, PUT, DELET 등등 ..
+        action은 데이터를 전송할 url을 표기 ! -->
+        <label for="input_name">이름 :</label><br />
+        <input type="text" id="input_name" name="name" placeholder="내용을 적어주세요"><br />
+        <!--label은 -->
+        <label for="input_email">이메일 :</label><br />
+        <input type="text" id="input_email" name="email"><br /><br />
+
+        <input type="submit" value="제출">
+
+        <fieldset>
+            <legend>필드셋에 라벨같은 기능!</legend>
+            <label for="input_phone">전화번호: <input type="text" id="input_phone" name="phone"><br /></label>
+            <label for="input_adderss">주소: <input type="text" id="input_adderss" name="address"><br /></label>
+        </fieldset>
+
+        <!--input 타입의 여러 종류-->
+        <div>
+            <label for="input_type_text">type="text"</label>
+            <input type="text" name="input_text" id="input_type_text" ><br />
+        </div>
+        <div>
+            <label for="input_type_text">type="password"</label>
+            <input type="password" name="input_password" id="input_type_password" ><br />
+        </div>
+        <div>
+            <label for="input_type_number">type="number"</label>
+            <input type="number" name="input_number" id="input_type_number" ><br />
+        </div>
+        <div>
+            <label for="input_type_date">type="date"</label>
+            <input type="date" name="input_date" id="input_type_date" ><br />
+        </div>
+        <div>
+            <label for="input_type_time">type="time"</label>
+            <input type="time" name="input_time" id="input_type_time" ><br />
+        </div>
+        <div>
+            <label for="input_type_hidden">type="hidden"</label>
+            <input type="hidden" name="input_hidden" id="input_type_hidden" ><br />
+        </div>
+
+        <div>
+            <label for="input_radio_1">type="input_type_radio_1"</label>
+            <input type="radio" name="input_radio_1" id="input_type_radio_1" ><br />
+        </div>
+
+        <div>
+            <label for="input_checkbox_1">type="input_checkbox_2"</label>
+            <input type="checkbox" name="input_checkbox_1" id="input_type_chechkbox_1" ><br />
+        </div>
+
+        <input type="submit" value="제출">
+        <input type="reset" value="초기화">
+    </form>
+
+
+    
+       
+</body>
+</html>

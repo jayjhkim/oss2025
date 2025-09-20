@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment#2-1 22301009 김지홍</title>
+</head>
+
+<style>
+    body {
+        margin: 20px 240px 30px;
+        padding: 20px;
+        background-color: #f8f9fa;
+    }
+
+    input, select, textarea{
+        padding: 10px;
+        margin: 10px 0 15px 0;
+        border: 1px solid #ced4da;
+        border-radius: 6px;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 15px;
+    }
+
+    input::placeholder{
+        font-size: medium;
+        opacity: 80%;
+
+    }
+
+    input.checkbox, input[type="radio"] {
+        width: auto;
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+
+    hr{
+        border: none;
+        border-top: 0.5px solid gray;
+    }
+
+    small{
+        color: gray;
+    }
+
+    a{
+        margin: 5px;
+    }
+
+    
+
+
+</style>
+
+<body>
+
+    <!--헤더-->
+    <div style="text-align: center;">
+        <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" width="80" height="auto">
+        <h1>Checkout form</h1>
+        <div style="font-size: 18px; margin-bottom: 30px;">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a <br/> validation state that can be triggered by attempting to submit the form without completing it.<br/><br/></div>
+    </div>
+
+    <div >
+    <!--좌측 폼-->
+    <div style="width:70vh; float: left ; margin-right: 50px;">
+        <h2>Billing address</h2>
+        <form action="" method="post">
+
+            <!--정보-->
+            <div>
+                <div style="float: left; gap: 10px; margin-right: 10px;">
+                    <label for="fname">First name</label><br/>
+                    <input type="text" id="fname" name="firstname" value="" style="width: 34.31vh;"><br/>
+                </div>
+
+                <div style="float: left;">
+                    <label for="lname">Last name</label><br/>
+                    <input type="text" id="lname" name="lastname" value="" style="width: 34.31vh"><br/>
+                </div>
+
+                <div style="clear: both;"></div>
+
+                <label for="birthdate">Birth <span style="color: gray;">(Optional)</span></label><br/>
+                <input type="date" id="birthdate" name="birthdate" value="" ><br/>
+
+                
+                <label for="username">Username</label><br/>
+                <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 5px; overflow: hidden;">
+                <span style="background: lightgray; padding: 10px 13px; border-right: 1px solid #ccc; font-size: 13px;">@</span>
+                <input type="text" id="username" name="username" placeholder="Username" style="flex: 1; width: 97%; border: none; padding: 8px; margin: 0;">
+                </div>
+
+                <div style="margin: 5px 0 20px 0;"></div>
+
+                <label for="email">Email <span style="color: gray;">(Optional)</span></label><br/>
+                <input type="text" id="email" name="email" placeholder="you@example.com"><br/>
+
+                <label for="address">Address</label><br/>
+                <input type="text" id="address" name="address" placeholder="1234 Main St"><br/>
+
+                <label for="address">Address 2 <span style="color: gray;">(Optional)</span></label><br/>
+                <input type="text" id="address" name="address" placeholder="Apartment or suite"><br/>
+
+                <!--지역 선택-->
+                <div style="float: left; width: 43%;">
+                    <label for="country">Country</label><br/>
+                    <select id="country" name="country">
+                        <option>Choose...</option>
+                        <option value="United States">United States</option>
+                    </select><br/>
+                </div>
+                <div style="float: left; margin-left: 10px; width: 31%;">
+                    <label for="state">State</label><br/>
+                    <select id="state" name="state">
+                        <option>Choose...</option>
+                        <option value="California">California</option>
+                    </select><br/>
+                </div>
+
+                <div style="float: left; margin-left: 10px; width: 22.4%;">
+                    <label for="zip">Zip</label><br/>
+                    <input type="text" id="zip" name="zip" value=""><br/>
+                </div>
+
+                <div style="clear: both;"></div>
+
+                <labeel for="memo">Memo <span style="color: gray;">(Optional)</span></labeel><br/>
+                <textarea id="memo" name="memo" rows="4"></textarea><br/>
+            </div>
+
+            <hr class="one"/>
+
+            <!--체크-->
+            <div style="margin: 25px 0;">
+                <label for="address_check" style="display: block; margin-bottom: 10px;">
+                    <input type="checkbox" id="address_check" name="address_check" value="yes" style="padding: 0; margin: 0 5px 0 0; width: auto;" onclick="showCheckingMessage()">
+                    Shipping address is the same as my billing address
+                </label>
+
+                <label for="save_info" style="display: block; margin-bottom: 10px;">
+                    <input type="checkbox" id="save_info" name="save_info" value="yes" style="padding: 0; margin: 0 5px 0 0; width: auto;" onclick="showSavingMessage()">
+                    Save this information for next time
+                </label>
+            </div>
+
+
+            <hr class="two"/>
+            
+            <!--결제-->
+            <div>
+                <h2>Payment</h2>
+                <div style="font-size: 16px; margin-bottom: 20px;">
+                <input type="radio" id="credit" name="payment_method" value="credit_card" checked style="margin: 6px 5px 6px 0;">
+                <label for="credit" >Credit card</label><br/>
+                <input type="radio" id="debit" name="payment_method" value="debit_card" style="margin: 6px 5px 6px 0;">
+                <label for="debit">Debit card</label><br/>
+                <input type="radio" id="paypal" name="payment_method" value="paypal" style="margin: 6px 5px 6px 0;">
+                <label for="paypal">PayPal</label><br/>
+                </div>
+                
+                <div style="float: left; gap: 10px; margin-right: 10px;">
+                    <label for="card_name">Name on card</label><br/>
+                    <input type="text" id="card_name" name="card_name" value="" style="width: 34.31vh; margin-bottom: 0;"><br/>
+                </div>
+                <div style="float: left;">
+                    <label for="card_num">Credit card number</label><br/>
+                    <input type="text" id="card_num" name="card_num" value="" style="width: 34.31vh; margin-bottom: 0;"><br/>
+                </div>
+                <div style="clear: both;"></div>
+
+                <div style="font-size: 12px; color: gray; margin: 3px 0 17px;">Full name as displayed on card</div>
+                
+                <div style="float: left; gap: 10px; margin-right: 10px;">
+                <label for="exp_date">Expiration</label><br/>
+                <input type="text" id="exp_date" name="exp_date" value="" style="width: 16.45vh;"><br/>
+                </div>
+                <div style="float: left;">
+                <label for="cvv">CVV</label><br/>
+                <input type="text" id="cvv" name="cvv" value="" style="width: 16.45vh;"><br/>
+                </div>
+
+                <div style="clear: both;"></div>
+                <hr class="three"/>
+                
+            </div>
+
+            <div>
+                <button type="submit" style="background-color: rgb(77, 109, 248); color: white; font-size: 20px; border: none; padding: 12px; border-radius: 6px; width: 100%; box-sizing: border-box; margin-top: 15px;" onmouseover="hoverBtn(this)" onmouseout="leaveBtn(this)">Continue to checkout</button>
+            </div>
+        </form>
+    </div>
+
+    <!--우측 폼-->
+    <div style="float: right; width: 35vh; height: auto;">
+        <div>
+            <h2>
+                <span style="color: rgb(83, 83, 236);">Your cart</span>
+                <span style="background-color: rgb(83, 83, 236); color: white; border-radius: 17px; padding: 6px 13.5px; margin-left: 135px; font-size: 18px; vertical-align: middle;">3</span>
+            </h2> 
+        </div>
+        
+        <div style="border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; background-color: whit;">
+        <div style="display: flex; justify-content: space-between; padding: 10px 15px; border-bottom: 1px solid #ddd; line-height: 1.2;">
+            <div>
+                <div>Product name</div>
+                <small>Brief description</small>
+            </div>
+            <span style="color: gray;">$12</span>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; padding: 10px 15px; border-bottom: 1px solid #ddd; line-height: 1.2;">
+            <div>
+                <div>Second product</div>
+                <small>Brief description</small>
+            </div>
+            <span style="color: gray;">$8</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; padding: 10px 15px; border-bottom: 1px solid #ddd; line-height: 1.2;">
+            <div>
+                <div>Third item</div>
+                <small>Brief description</small>
+            </div>
+            <span style="color: gray;">$5</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; padding: 10px 15px; border-bottom: 1px solid #ddd; line-height: 1.2; background-color: #eaeaea;">
+            <div>
+                <div style="color: green;">Promo code</div>
+                <small style="color: green;">EXAMPLECODE</small>
+            </div>
+            <span style="color: green;">-$5</span>
+        </div>
+
+
+        <div style="display: flex; justify-content: space-between; padding: 10px ; ">
+            <div>Total (USD)</div>
+            <span style="font-weight: bold;">$20</span>
+        </div>
+        </div>
+
+    
+
+        <div style="border: 1px solid #ccc; border-radius: 6px; padding: 7px; width: 33vh; margin-top: 15px; background-color: white;">
+            <div style="display: flex;">
+                <input type="text" id="promo" name="promo" placeholder="Promo code" style="flex: 1; margin: 0; padding: 8.5px; border: 1px solid #ccc; width: 20vh; border-radius: 6px 0 0 6px;">
+                <button type="button" id="redeem-btn" style="border: none; background-color: rgb(94, 94, 94); color: #fff; padding: 8px 12px; font-size: 16px; border-radius: 0 6px 6px 0; cursor: pointer;" onmouseover="redeemHover()" onmouseout="redeemOut()">Redeem</button>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <!--푸터-->
+    <div style="clear: both; text-align: center; padding: 20px; ">
+        <div style="margin-top: 80px; color: gray; padding: 10px;">© 2017–2022 Company Name</div>
+        <div >
+            <a href="#">Privacy</a>    <a href="#">Terms</a>    <a href="#">Support</a>
+        </div>
+    </div>
+
+    
+    <script>
+    document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+   
+    const fname = document.getElementById("fname").value.trim();
+    const lname = document.getElementById("lname").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const country = document.getElementById("country").value;
+    const state = document.getElementById("state").value;
+    const zip = document.getElementById("zip").value.trim();
+    const email = document.getElementById("email").value.trim();
+
+    const cardName = document.getElementById("card_name").value.trim();
+    const cardNum = document.getElementById("card_num").value.trim();
+    const expDate = document.getElementById("exp_date").value.trim();
+    const cvv = document.getElementById("cvv").value.trim();
+
+    const addressCheck = document.getElementById("address_check").checked;
+    const saveInfo = document.getElementById("save_info").checked;
+
+    
+    if (!fname || !lname) {
+        alert("이름을 입력하세요.");
+        return;
+    }
+    
+    if (!username) {
+        alert("Username을 입력하세요.");
+        return;
+    }
+    if(email && !email.includes("@")){
+        alert("Email 형식이 올바르지 않습니다.");
+        return;
+    }
+
+    if (!address) {
+        alert("주소를 입력하세요.");
+        return;
+    }
+
+    if (country == "Choose...") {
+        alert("Country를 선택하세요.");
+        return;
+    }
+
+    if (state == "Choose...") {
+        alert("State를 선택하세요.");
+        return;
+    }
+
+    if (!zip) {
+        alert("Zip을 입력하세요.");
+        return;
+    }
+    if (isNaN(zip)) {
+        alert("Zip에 숫자만 입력하세요.");
+        return;
+    }
+
+    if (!cardName || !cardNum || !expDate || !cvv) {
+        alert("카드 정보를 모두 입력하세요.");
+        return;
+    }
+
+    if (!addressChecㅏ) {
+        alert("Shipping address를 체크하세요.");
+        return;
+    }
+
+    if (isNaN(cardNum) || isNaN(zip) || isNaN(cvv)) {
+        alert("카드번호, Zip, CVV에 숫자만 입력하세요.");
+        return;
+    }
+
+    if (!/^\d{3}$/.test(cvv)) {
+        alert("CVV는 3자리만 입력해주세요.");
+        return;
+    }
+
+    if (!/^\d{2}\/\d{2}$/.test(expDate)) {
+        alert("만료일의 형식이 올바르지 않습니다. MM/YY 형식으로 변환해주세요.");
+        return;
+    }
+
+    if (confirm("제출하시겠습니까?")) {
+        event.target.submit();
+        alert("성공적으로 제출되었습니다.");
+    }
+    });
+
+    function hoverBtn(btn){
+        btn.style.backgroundColor = "rgb(56, 84, 199)";
+        btn.style.cursor = "pointer";
+    }
+
+    function leaveBtn(btn){
+        btn.style.backgroundColor = "rgb(77, 109, 248)";
+    }
+
+    function showCheckingMessage() {
+        const checkbox = document.getElementById("address_check");
+        if (checkbox.checked) {
+            alert("배송 주소를 확인했습니다.");
+        }
+    }
+
+    function showSavingMessage() {
+        const checkbox = document.getElementById("save_info");
+        if (checkbox.checked) {
+            alert("이 정보를 저장합니다.");
+        }
+    }
+
+    function redeemHover() {
+        const btn = document.getElementById("redeem-btn");
+        btn.style.backgroundColor = "black"; 
+    }
+
+    function redeemOut() {
+        const btn = document.getElementById("redeem-btn");
+        btn.style.backgroundColor = "rgb(94,94,94)";
+    }
+
+
+    </script>
+
+</body>
+</html>

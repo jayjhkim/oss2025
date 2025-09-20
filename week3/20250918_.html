@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //alert("안녕하세요!");
+
+        let sum = 0;
+        for(let i=0; i<=100; i++){
+            sum += 1;
+        }
+
+        //alert("0부터 100까지의 합은 " + sum + "입니다.");
+
+        var aaa= 0;
+        let bbb = 0; 
+        const ccc = 0; //상수처럼 선언
+
+        console.log("java javascript 다른 언어 !");
+
+        let confirm_result = confirm("정말로 삭제하시겠습니까?");
+        alert("confirm_result : " + confirm_result);
+        //setTimeout(function(){alert(112233);}, 1000);
+
+        let height1=window.innerHeight;
+        let width1=window.innerWidth;
+        alert(height1 + "||" + width1);
+
+        //window.location.href="https://www.naver.com";
+        //location.replace("https://www.daum.net");
+
+        /*let obj = {
+            phone:"010-1234-5678",
+            stdnum: "20250918"
+        };
+        obj.name = "갹체이름이야";
+        console.log(obj.name);
+        console.log(obj.phone);
+        console.log(obj.stdnum); */
+
+    </script>
+
+    <h2>덧셈계산기</h2>
+    <form name="calcform" method="post" action="">
+        <input type="text" name="num1" value="" size="5"> +
+        <input type="text" name="num2" value="" size="5">
+        <input type="button" value="계산하기" onclick="calc()">
+        <input type="text" name="result" value="" size="10">
+    </form>
+
+
+</body>
+</html>

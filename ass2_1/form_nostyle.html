@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment#2-1 22301009 김지홍</title>
+</head>
+<body>
+
+    <!--헤더-->
+    <div>
+        <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png">
+        <h1>Checkout form</h1>
+        <div>Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a <br/> validation state that can be triggered by attempting to submit the form without completing it.<br/><br/></div>
+    </div>
+
+    <!--좌측 폼-->
+    <div>
+        <h2>Billing address</h2>
+        <form action="" method="post">
+            <div>
+                <label for="fname">First name</label><br/>
+                <input type="text" id="fname" name="firstname" value="" ><br/>
+
+                <label for="lname">Last name</label><br/>
+                <input type="text" id="lname" name="lastname" value="" ><br/>
+
+                <label for="birthdate">Birth <span>(Optional)</span></label><br/>
+                <input type="date" id="birthdate" name="birthdate" value="" ><br/>
+
+                <label for="username">Username</label><br/>
+                <span>@</span>
+                <input type="text" id="username" name="username" placeholder="Username" ><br/>
+
+                <label for="email">Email <span>(Optional)</span></label><br/>
+                <input type="text" id="email" name="email" placeholder="you@example.com"><br/>
+
+                <label for="address">Address</label><br/>
+                <input type="text" id="address" name="address" placeholder="1234 Main St"><br/>
+
+                <label for="address">Address 2 <span>(Optional)</span></label><br/>
+                <input type="text" id="address" name="address" placeholder="Apartment or suite"><br/>
+
+                <label for="country">Country</label><br/>
+                <select id="country" name="country">
+                    <option>Choose...</option>
+                    <option value="United States">United States</option>
+                </select><br/>
+                <label for="state">State</label><br/>
+                <select id="state" name="state">
+                    <option>Choose...</option>
+                    <option value="California">California</option>
+                </select><br/>
+
+                <label for="zip">Zip</label><br/>
+                <input type="text" id="zip" name="zip" value=""><br/>
+
+                <labeel for="memo">Memo</labeel><br/>
+                <textarea id="memo" name="memo"></textarea><br/>
+            </div>
+            <hr class="one"/>
+            <div>
+                <input type="checkbox" id="address_check" name="address_check" value="yes">
+                <label for="address_check">Shipping address is the same as my billing address</label><br/>
+                <input type="checkbox" id="save_info" name="save_info" value="yes">
+                <label for="save_info">Save this information for next time</label>
+            </div>
+            <hr class="two"/>
+            <div>
+                <h2>Payment</h2>
+                <input type="radio" id="credit" name="payment_method" value="credit_card" checked>
+                <label for="credit">Credit card</label><br/>
+                <input type="radio" id="debit" name="payment_method" value="debit_card">
+                <label for="debit">Debit card</label><br/>
+                <input type="radio" id="paypal" name="payment_method" value="paypal">
+                <label for="paypal">PayPal</label><br/>
+                
+                <label for="card_name">Name on card</label><br/>
+                <input type="text" id="card_name" name="card_name" value=""><br/>
+                <div>Full name as displayed on card</div>
+                <label for="card_num">Credit card number</label><br/>
+                <input type="text" id="card_num" name="card_num" value=""><br/>
+
+                <label for="exp_date">Expiration</label><br/>
+                <input type="text" id="exp_date" name="exp_date" value=""><br/>
+                <label for="cvv">CVV</label><br/>
+                <input type="text" id="cvv" name="cvv" value=""><br/>
+                <hr class="three"/>
+            </div>
+
+            <div>
+                <button type="submit">Continue to checkout</button>
+            </div>
+        </form>
+    </div>
+
+    <!--우측 폼-->
+    <div>
+        <div>
+            <h2>
+                Your cart
+                <span>3</span>
+            </h2> 
+        </div>
+        <div>
+            <div>Product name</div>
+            Brief description
+        </div>
+        <span>$12</span>
+        <div>
+            <div>Second product</div>
+            Brief description
+        </div>
+        <span>$8</span>
+        <div>
+            <div>Third item</div>
+            Brief description
+        </div>
+        <span>$5</span>
+        <div>
+            <div>Promo code</div>
+            EXAMPLECODE
+        </div>
+        <span>-$5</span>
+        <div>
+            <div>Total (USD)</div>
+            <span>$20</span>
+        </div>
+        <div>
+            <input type="text" placeholder="Promo code">
+            <button type="button">Redeem</button>
+        </div>
+
+    </div>
+
+    <!--푸터-->
+    <div>
+        <div>© 2017–2022 Company Name</div>
+        <div>
+            Privacy
+            Terms
+            Support
+        </div>
+    </div>
+
+</body>
+</html>
