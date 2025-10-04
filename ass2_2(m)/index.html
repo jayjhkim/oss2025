@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment2_2 22301009 김지홍</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="my.css">
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<body>
+    
+    <!--친구관리: 이름, 성별, 학번, mbti, 생일, 혈액형 -->
+
+    
+    <h1>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+        <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z"/></svg>
+        My Friends List
+    </h1>
+
+    <button type="button" id="addBtn" class="btn btn-primary">추가</button>
+
+    <div class="table">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>student ID</th>
+                    <th>MBTI</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>김길동</td>
+                    <td>남</td>
+                    <td>22000001</td>
+                    <td>ENFP</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>남길동</td>
+                    <td>여</td>
+                    <td>22000002</td>
+                    <td>ENFJ</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>류길동</td>
+                    <td>남</td>
+                    <td>22000003</td>
+                    <td>INFP</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>민길동</td>
+                    <td>남</td>
+                    <td>22000004</td>
+                    <td>INFJ</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>박길동</td>
+                    <td>여</td>
+                    <td>22000005</td>
+                    <td>ESTJ</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>송길동</td>
+                    <td>여</td>
+                    <td>22000006</td>
+                    <td>ESTP</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>윤길동</td>
+                    <td>여</td>
+                    <td>22000007</td>
+                    <td>ISFJ</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>정길동</td>
+                    <td>남</td>
+                    <td>22000008</td>
+                    <td>ENTJ</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>최길동</td>
+                    <td>여</td>
+                    <td>22000009</td>
+                    <td>ENTP</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>홍길동</td>
+                    <td>여</td>
+                    <td>22000010</td>
+                    <td>INTP</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>황길동</td>
+                    <td>남</td>
+                    <td>22000011</td>
+                    <td>ESFP</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>황제길동</td>
+                    <td>남</td>
+                    <td>22000012</td>
+                    <td>ESTP</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+        </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+        </a>
+        </li>
+    </ul>
+    </nav>
+
+    
+
+    <script>
+        document.getElementById("addBtn").addEventListener("click", function() {
+            window.location.href = "add.html";
+        });
+
+        const rows = document.querySelectorAll("table tbody tr");
+        rows.forEach(row => {
+            row.addEventListener("click", () => {
+                const friendId = row.dataset.id;
+                window.location.href = `view.html?id=${friendId}`;
+            });
+        });
+
+
+    </script>
+</body>
+</html>
