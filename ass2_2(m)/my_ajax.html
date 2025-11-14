@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>22301009 김지홍</title>
+</head>
+<body>
+
+  <div>
+    <button id="btnGet">학생데이터 가져오기</button>
+    <div id="contents"></div>
+  </div>
+
+  <hr>
+
+  <div>
+    <h3>학생데이터 추가</h3>
+    <input id="name" placeholder="name">
+    <input id="age" placeholder="age">
+    <input id="major" placeholder="major">
+    <input id="gender" placeholder="gender">
+    <button id="btnAdd">학생데이터 추가</button>
+  </div>
+  
+  <hr>
+
+  <div>
+    <h3>학생데이터 수정</h3>
+    <input id="update_id" placeholder="id">
+    <input id="update_name" placeholder="new name">
+    <input id="update_age" placeholder="new age">
+    <input id="update_major" placeholder="new major">
+    <input id="update_gender" placeholder="new gender">
+    <button id="btnUpdate">학생데이터 수정</button>
+  </div>
+  
+  <hr>
+
+  <div>
+    <h3>학생데이터 삭제</h3>
+    <input id="delete_id" placeholder="id">
+    <button id="btnDelete">학생데이터 삭제</button>
+  </div>
+
+  <script>
+    const BASE = "http://localhost:3001/students";
+    let studentsData = []; 
+
+    document.getElementById("btnGet").addEventListener("click", getStudents);
+
+    function getStudents() {
+      let xhr = new XMLHttpRequest();
+      xhr.open("GET", BASE);
+
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          const res = JSON.parse(xhr.responseText);
+          studentsData = res.map(s => ({
+            id: Number(s.id),
+            name: s.name,
+            age: s.age,
+            major: s.major,
+            gender: s.gender
+          }));
+          console.log("GET students:", studentsData);
+          document.getElementById("contents").innerHTML = makeList(studentsData);
+        } else {
+          console.log("GET error:", xhr.status, xhr.statusText);
+        }
+      };
+
+      xhr.onerror = () => console.log("GET network error");
+      xhr.send();
+    }
+
+    function makeList(data) {
+      let str = "<ul>";
+      for (let s of data) {
+        str += `<li>
+          ${s.id}. ${s.name}
+          (age: ${s.age}, major: ${s.major}, gender: ${s.gender})
+        </li>`;
+      }
+      str += "</ul>";
+      return str;
+    }
+
+    document.getElementById("btnAdd").addEventListener("click", postData);
+
+    function postData() {
+      let name = document.getElementById("name").value.trim();
+      let age = Number(document.getElementById("age").value);
+      let major = document.getElementById("major").value.trim();
+      let gender = document.getElementById("gender").value.trim();
+
+      if (!name || Number.isNaN(age) || !major || !gender) {
+        alert("모든 항목을 올바르게 입력하세요!");
+        return;
+      }
+
+      let maxId = studentsData.length > 0
+        ? Math.max(...studentsData.map(s => s.id))
+        : 0;
+      let nextId = maxId + 1;
+
+      let data = { id: nextId, name, age, major, gender };
+      console.log("POST data:", data);
+
+      let xhr = new XMLHttpRequest();
+      xhr.open("POST", BASE);
+      xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+      xhr.onload = function () {
+        console.log("POST status:", xhr.status, xhr.responseText);
+        if (xhr.status === 201 || xhr.status === 200) {
+          getStudents();
+          document.getElementById("name").value = "";
+          document.getElementById("age").value = "";
+          document.getElementById("major").value = "";
+          document.getElementById("gender").value = "";
+        } else {
+          alert("추가 실패: " + xhr.status);
+        }
+      };
+
+      xhr.onerror = () => console.log("POST network error");
+      xhr.send(JSON.stringify(data));
+    }
+
+    document.getElementById("btnUpdate").addEventListener("click", updateData);
+
+    function updateData() {
+      let idStr = document.getElementById("update_id").value.trim();
+      let id = Number(idStr);
+
+      if (!idStr || Number.isNaN(id)) {
+        alert("수정할 ID를 숫자로 입력하세요!");
+        return;
+      }
+
+      let name = document.getElementById("update_name").value.trim();
+      let ageStr = document.getElementById("update_age").value.trim();
+      let age = ageStr ? Number(ageStr) : null;
+      let major = document.getElementById("update_major").value.trim();
+      let gender = document.getElementById("update_gender").value.trim();
+
+      let data = {};
+      if (name) data.name = name;
+      if (ageStr && !Number.isNaN(age)) data.age = age;
+      if (major) data.major = major;
+      if (gender) data.gender = gender;
+
+      if (Object.keys(data).length === 0) {
+        alert("수정할 값을 한 개 이상 입력하세요!");
+        return;
+      }
+
+      console.log("PUT data:", data, "for id:", id);
+
+      let xhr = new XMLHttpRequest();
+      xhr.open("PUT", `${BASE}/${id}`);
+      xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+      xhr.onload = function () {
+        console.log("PUT status:", xhr.status, xhr.statusText);
+        if (xhr.status === 200) {
+          getStudents();
+        } else {
+          alert("수정 실패: " + xhr.status);
+        }
+      };
+
+      xhr.onerror = () => console.log("PUT network error");
+      xhr.send(JSON.stringify(data));
+    }
+
+    document.getElementById("btnDelete").addEventListener("click", deleteData);
+
+    function deleteData() {
+      let idStr = document.getElementById("delete_id").value.trim();
+      let id = Number(idStr);
+
+      if (!idStr || Number.isNaN(id)) {
+        alert("삭제할 ID를 숫자로 입력하세요!");
+        return;
+      }
+
+      let url = `${BASE}/${id}`;
+      console.log("DELETE 요청 URL:", url);
+
+      let xhr = new XMLHttpRequest();
+      xhr.open("DELETE", url);
+
+      xhr.onload = function () {
+        console.log("DELETE status:", xhr.status, xhr.statusText);
+        if (xhr.status === 200) {
+          getStudents();
+        } else {
+          alert("삭제 실패: " + xhr.status);
+        }
+      };
+
+      xhr.onerror = () => console.log("DELETE network error");
+      xhr.send();
+    }
+
+  </script>
+</body>
+</html>
