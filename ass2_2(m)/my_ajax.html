@@ -44,7 +44,7 @@
 
   <script>
     const BASE = "http://localhost:3001/students";
-    let studentsData = []; 
+    let studentsData = [];
 
     document.getElementById("btnGet").addEventListener("click", getStudents);
 
@@ -56,30 +56,22 @@
         if (xhr.status === 200) {
           const res = JSON.parse(xhr.responseText);
           studentsData = res.map(s => ({
-            id: Number(s.id),
+            id: String(s.id),
             name: s.name,
             age: s.age,
             major: s.major,
             gender: s.gender
           }));
-          console.log("GET students:", studentsData);
           document.getElementById("contents").innerHTML = makeList(studentsData);
-        } else {
-          console.log("GET error:", xhr.status, xhr.statusText);
         }
       };
-
-      xhr.onerror = () => console.log("GET network error");
       xhr.send();
     }
 
     function makeList(data) {
       let str = "<ul>";
       for (let s of data) {
-        str += `<li>
-          ${s.id}. ${s.name}
-          (age: ${s.age}, major: ${s.major}, gender: ${s.gender})
-        </li>`;
+        str += `<li>${s.id}. ${s.name} (age: ${s.age}, major: ${s.major}, gender: ${s.gender})</li>`;
       }
       str += "</ul>";
       return str;
@@ -94,52 +86,45 @@
       let gender = document.getElementById("gender").value.trim();
 
       if (!name || Number.isNaN(age) || !major || !gender) {
-        alert("모든 항목을 올바르게 입력하세요!");
+        alert("모든 항목을 입력하세요!");
         return;
       }
 
       let maxId = studentsData.length > 0
-        ? Math.max(...studentsData.map(s => s.id))
+        ? Math.max(...studentsData.map(s => Number(s.id)))
         : 0;
-      let nextId = maxId + 1;
+
+      let nextId = String(maxId + 1);
 
       let data = { id: nextId, name, age, major, gender };
-      console.log("POST data:", data);
 
       let xhr = new XMLHttpRequest();
       xhr.open("POST", BASE);
       xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
 
       xhr.onload = function () {
-        console.log("POST status:", xhr.status, xhr.responseText);
-        if (xhr.status === 201 || xhr.status === 200) {
-          getStudents();
-          document.getElementById("name").value = "";
-          document.getElementById("age").value = "";
-          document.getElementById("major").value = "";
-          document.getElementById("gender").value = "";
-        } else {
-          alert("추가 실패: " + xhr.status);
-        }
+        getStudents();
+        document.getElementById("name").value = "";
+        document.getElementById("age").value = "";
+        document.getElementById("major").value = "";
+        document.getElementById("gender").value = "";
       };
 
-      xhr.onerror = () => console.log("POST network error");
       xhr.send(JSON.stringify(data));
     }
 
     document.getElementById("btnUpdate").addEventListener("click", updateData);
 
     function updateData() {
-      let idStr = document.getElementById("update_id").value.trim();
-      let id = Number(idStr);
+      let id = document.getElementById("update_id").value.trim();
 
-      if (!idStr || Number.isNaN(id)) {
-        alert("수정할 ID를 숫자로 입력하세요!");
+      if (!id) {
+        alert("ID를 입력하세요!");
         return;
       }
 
       let name = document.getElementById("update_name").value.trim();
-      let ageStr = document.getElementById("update_age").value.trim();
+      let ageStr = document.getElementById("update_age").value;
       let age = ageStr ? Number(ageStr) : null;
       let major = document.getElementById("update_major").value.trim();
       let gender = document.getElementById("update_gender").value.trim();
@@ -151,59 +136,41 @@
       if (gender) data.gender = gender;
 
       if (Object.keys(data).length === 0) {
-        alert("수정할 값을 한 개 이상 입력하세요!");
+        alert("수정할 값을 입력하세요!");
         return;
       }
-
-      console.log("PUT data:", data, "for id:", id);
 
       let xhr = new XMLHttpRequest();
       xhr.open("PUT", `${BASE}/${id}`);
       xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
 
       xhr.onload = function () {
-        console.log("PUT status:", xhr.status, xhr.statusText);
-        if (xhr.status === 200) {
-          getStudents();
-        } else {
-          alert("수정 실패: " + xhr.status);
-        }
+        getStudents();
       };
 
-      xhr.onerror = () => console.log("PUT network error");
       xhr.send(JSON.stringify(data));
     }
 
     document.getElementById("btnDelete").addEventListener("click", deleteData);
 
     function deleteData() {
-      let idStr = document.getElementById("delete_id").value.trim();
-      let id = Number(idStr);
+      let id = document.getElementById("delete_id").value.trim();
 
-      if (!idStr || Number.isNaN(id)) {
-        alert("삭제할 ID를 숫자로 입력하세요!");
+      if (!id) {
+        alert("ID를 입력하세요!");
         return;
       }
 
-      let url = `${BASE}/${id}`;
-      console.log("DELETE 요청 URL:", url);
-
       let xhr = new XMLHttpRequest();
-      xhr.open("DELETE", url);
+      xhr.open("DELETE", `${BASE}/${id}`);
 
       xhr.onload = function () {
-        console.log("DELETE status:", xhr.status, xhr.statusText);
-        if (xhr.status === 200) {
-          getStudents();
-        } else {
-          alert("삭제 실패: " + xhr.status);
-        }
+        getStudents();
       };
 
-      xhr.onerror = () => console.log("DELETE network error");
       xhr.send();
     }
-
   </script>
+
 </body>
 </html>

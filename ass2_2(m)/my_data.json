@@ -64,11 +64,25 @@
       "gender": "F"
     },
     {
-      "id": 10,
       "name": "Kaddy",
-      "age": 22,
+      "age": 25,
+      "major": "Bio",
+      "gender": "F",
+      "id": "10"
+    },
+    {
+      "name": "Sonny",
+      "age": 19,
       "major": "GLS",
-      "gender": "F"
+      "gender": "M",
+      "id": "11"
+    },
+    {
+      "id": "12",
+      "name": "Tim",
+      "age": 28,
+      "major": "Mechanical",
+      "gender": "M"
     }
   ],
   "courses": [

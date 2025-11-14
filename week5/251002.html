@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery js import -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    
+</head>
+<body>
+    <style>
+        /* 
+        div.example{
+            font-size:50px;
+            background-color: aqua;
+        }
+        @media only screen and (max-width: 475px) {
+            div.example {
+                font-size: 30px;
+                background-color: blueviolet;
+            }
+        }
+        @media only screen and (min-width: 475px) and (max-width: 700px){
+            div.example {
+                font-size: 40px;
+                background-color:green;
+            }
+        } 
+            */
+
+        div.example1{
+            font-size:30px;
+            background-color: blueviolet;
+        }
+        div.example2{
+            font-size:40px;
+            background-color:green;
+        }
+        div.example3{
+            font-size:50px;
+            background-color: aqua;
+        }
+
+        .div_obj{
+            position: fixed;
+            top:30px;
+            left: 50px;
+            width: 50px;
+        }
+
+        .div_goal{
+            left: 40px;
+
+        }
+    </style>
+
+    <div class="div_obj div_btn" onclick="Listener_btn_clickes()"></div>
+    <div class="div_obj div_goal">Goal</div>
+
+    <script>
+        
+        function Listener_btn_clickes(){
+        }
+
+        let div_btn = document.getElementById("div_btn");
+        div_btn.addEventListener()
+
+        // window.addEventListener("resize", function(){
+            
+        // });
+        $(window).resize(function(){
+            listener_resize();
+        });
+    </script>
+
+    <style>
+        img{
+            max-width:100%;
+            height:auto;
+        }
+        div.div_img{
+            height: 200px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            /* 
+            background-size: 100% 100%;
+            background-repeat: no-repeat; */
+            background-image: url('https://cdn.crowdpic.net/detail-thumb/thumb_d_2F583E5543F7E19139C6FCFFBF9607A6.jpg');
+        }
+    </style>
+    <!-- <img src="https://www.urbanbrush.net/web/wp-content/uploads/edd/2023/02/urban-20230228144115810458.jpg"/>
+    -->
+
+    <div class="div_img"></div>
+</body>
+</html>

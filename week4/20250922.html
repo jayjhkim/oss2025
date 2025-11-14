@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div id="div_test"></div>
+        <input type="text" id="input_test" />
+        <div id="div_test2">test2</div>
+        <input type="text" id="input_test2" />
+
+        <div class="div_class">1234</div>
+        <div class="div_class">5678</div>
+
+        <div class="div_class2">2-1234</div>
+        <div class="div_class2">2-5678</div>
+
+        <button onclick="listerner_input_test()">
+            input value check
+        </button>
+
+        <script>
+            let div_test=document.getElementById("div_test");
+            //alert(input_test.value);
+
+            let div_test2=$("#div_test2");
+            //alert(input_test2.val());
+
+            function listerner_input_test(){
+                let input_test = document.getElementById("input_test");
+                alert(input_test.value);
+
+                let input_test2 = $("#input_test2");
+                alert(input_test2.val());
+
+                let div_class = document.getElementsByClassName("div_class");
+                alert(div_class.length);
+                for(let i=0;i<div_class.length;i++){
+                    alert(div_class[i].innerHTML);
+                }
+
+                let div_class2 = $(".div_class2");
+                alert(div_class2.length);
+                for(let i=0;i<div_class2.length;i++){
+                    alert($(div_class2[i]).html());
+                }
+            }
+
+
+
+        </script>
+
+
+
+
+    </div>
+</body>
+</html>
