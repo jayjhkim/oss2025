@@ -1,0 +1,100 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "Jerry",
+      "age": 20,
+      "major": "CSEE",
+      "gender": "M"
+    },
+    {
+      "id": "2",
+      "name": "Tom",
+      "age": 18,
+      "major": "CSEE",
+      "gender": "M"
+    },
+    {
+      "id": "3",
+      "name": "Alice",
+      "age": 19,
+      "major": "Design",
+      "gender": "F"
+    },
+    {
+      "id": "4",
+      "name": "Bob",
+      "age": 21,
+      "major": "Mechanical",
+      "gender": "M"
+    },
+    {
+      "id": "5",
+      "name": "Eve",
+      "age": 20,
+      "major": "GlobalEcon",
+      "gender": "F"
+    },
+    {
+      "id": "6",
+      "name": "Chris",
+      "age": 22,
+      "major": "CSEE",
+      "gender": "M"
+    },
+    {
+      "id": "7",
+      "name": "Dana",
+      "age": 23,
+      "major": "Psychology",
+      "gender": "F"
+    },
+    {
+      "id": "8",
+      "name": "Frank",
+      "age": 20,
+      "major": "GlobalEdu",
+      "gender": "M"
+    },
+    {
+      "id": "9",
+      "name": "Helen",
+      "age": 19,
+      "major": "Design",
+      "gender": "F"
+    },
+    {
+      "name": "Kaddy",
+      "age": 25,
+      "major": "Bio",
+      "gender": "F",
+      "id": "10"
+    },
+    {
+      "name": "Sonny",
+      "age": 19,
+      "major": "GLS",
+      "gender": "M",
+      "id": "11"
+    },
+    {
+      "id": "12",
+      "name": "Tim",
+      "age": 28,
+      "major": "Mechanical",
+      "gender": "M"
+    }
+  ],
+  "courses": [
+    {
+      "id": "1",
+      "cname": "Open source studio",
+      "credit": 3
+    },
+    {
+      "id": "2",
+      "cname": "Programming studio",
+      "credit": 2
+    }
+  ]
+}
