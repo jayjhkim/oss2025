@@ -16,8 +16,6 @@ const CHARGER_TYPE_MAP = {
   "5": "초급속"
 };
 
-
-//데이터 호출
 export async function fetchRealStations() {
   try {
     const response = await fetch("/api/charging");
@@ -34,11 +32,9 @@ export async function fetchRealStations() {
       if (!grouped[id]) {
         const x = Number(item.X);
         const y = Number(item.Y);
-
         if (!x || !y) return;
 
         const { lat, lng } = webMercatorToLatLng(x, y);
-
         if (lat < 30 || lat > 45 || lng < 120 || lng > 135) return;
 
         grouped[id] = {
@@ -48,8 +44,10 @@ export async function fetchRealStations() {
           company: item.BUSI_NM,
           phone: item.TELNO,
           useTime: item.USE_TM,
+          operatingHours: item.USE_TM,
           lat,
           lng,
+          status: "available",
           chargers: []
         };
       }
@@ -61,7 +59,6 @@ export async function fetchRealStations() {
 
     const stations = Object.values(grouped).map((st) => {
       const typeCountMap = {};
-
       st.chargers.forEach((ch) => {
         typeCountMap[ch.type] = (typeCountMap[ch.type] || 0) + 1;
       });
@@ -71,15 +68,18 @@ export async function fetchRealStations() {
         count
       }));
 
+      st.totalChargers = st.chargers.reduce((sum, c) => sum + c.count, 0);
+
       return st;
     });
+
     return stations;
   } catch (err) {
+    console.error("SafeMap API Error:", err);
     throw new Error("실제 API 호출 실패");
   }
 }
 
-// EvDataService 내보내기
 export const EvDataService = {
   async getStations() {
     return await fetchRealStations();
