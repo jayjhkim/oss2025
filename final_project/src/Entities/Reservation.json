@@ -1,0 +1,49 @@
+{
+  "name": "Reservation",
+  "type": "object",
+  "properties": {
+    "station_id": {
+      "type": "string",
+      "description": "ID of the charging station"
+    },
+    "station_name": {
+      "type": "string",
+      "description": "Name of the charging station"
+    },
+    "address": {
+      "type": "string",
+      "description": "Address of the station"
+    },
+    "charger_id": {
+      "type": "string",
+      "description": "Specific charger ID"
+    },
+    "charger_type": {
+      "type": "string",
+      "description": "Type of charger"
+    },
+    "reservation_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the reservation starts"
+    },
+    "duration_minutes": {
+      "type": "number",
+      "description": "Duration of reservation in minutes"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "completed",
+        "cancelled"
+      ],
+      "default": "active"
+    }
+  },
+  "required": [
+    "station_id",
+    "station_name",
+    "reservation_time"
+  ]
+}
