@@ -20,7 +20,7 @@ const CHARGER_TYPE_MAP = {
 //데이터 호출
 export async function fetchRealStations() {
   try {
-    const response = await fetch("http://localhost:4000/api/charging");
+    const response = await fetch("/api/charging");
     const json = await response.json();
 
     const items = json?.response?.body?.items?.item;
